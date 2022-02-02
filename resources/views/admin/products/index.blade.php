@@ -31,7 +31,7 @@
                             {{ $product->id }}
                         </td>
                         <td>
-                            {{ $product->title }}
+                            {{ $product->name_product }}
                         </td>
                         <td>
                             {{ $product->brand }}
