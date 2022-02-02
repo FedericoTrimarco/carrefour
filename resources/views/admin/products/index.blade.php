@@ -37,13 +37,13 @@
                             {{ $product->brand }}
                         </td>
                         <td>
-                            <a href="{{ route('admin.products.show', $post->id) }}" class="btn btn-primary">Show</a>
+                            <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-success">Show</a>
                         </td>
                         <td>
-                            <a href="{{ route('admin.products.edit', $post->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-primary">Edit</a>
                         </td>
                         <td>
-                            <form action="{{ route('admin.products.destroy', $post->id) }}" method="POST">
+                            <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <input type="submit" class="btn btn-danger" value="Delete">
