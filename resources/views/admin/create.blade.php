@@ -45,4 +45,5 @@
     price_detail / string
     description / text
     thumb / text
-    is_new / bool --}}
+    is_new / bool 
+    bau--}}
