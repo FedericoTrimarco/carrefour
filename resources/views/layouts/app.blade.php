@@ -36,6 +36,9 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.products.index') }}" class="nav-link">Products Archive</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.products.create') }}" class="nav-link">New Product</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
