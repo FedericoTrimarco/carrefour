@@ -19,7 +19,7 @@
     
         <form action="{{ route('admin.products.update', $product->id) }}" method="POST">
     
-            @method('POST')
+            @method('PUT')
             @csrf
     
             <label for="brand" class="form-label">Marca:</label>

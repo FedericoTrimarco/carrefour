@@ -24,9 +24,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Product $product)
+    public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -35,9 +35,24 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Product $product)
+    public function store(Request $request)
     {
-        //
+        //validation
+        $request->validate( $this->rules_to_validate(), $this->error_messages() );
+
+        $data = $request->all();
+
+        // 1. new instance of Product
+        $new_product = new Product();
+
+        // 2. set properties
+        $new_product->fill($data);
+
+        // 3. save in 'products' table
+        $new_product->save();
+
+        // 4. redirect to products.show
+        return redirect()->route('admin.products.show', $new_product->id);
     }
 
     /**
@@ -75,7 +90,12 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate( $this->rules_to_validate(), $this->error_messages() );
+
+        $data = $request->all();
+        $product->update($data);
+
+        return redirect()->route('admin.products.show', $product->id);
     }
 
     /**
@@ -86,6 +106,24 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('admin.products.index')->with('deleted', $product->title);
+    }
+
+    public function rules_to_validate() {
+        return [
+            'brand' => 'required',
+            'name_product' => 'required',
+            'price' => 'required',
+            'description' => 'required',
+            'thumb' => 'required',
+        ];
+    }
+
+    public function error_messages() {
+        return [
+            'required' => "Field ':attribute' is required"
+        ];
     }
 }
