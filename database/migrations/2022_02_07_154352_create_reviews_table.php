@@ -39,9 +39,6 @@ class CreateReviewsTable extends Migration
      */
     public function down()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            $table->dropForeign('products_product_id_foreign');
-            $table->dropColumn('product_id');
-        });
+        Schema::dropIfExists('reviews');
     }
 }
