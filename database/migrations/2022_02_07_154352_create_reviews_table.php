@@ -15,6 +15,16 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            //FK
+            $table->unsignedBigInteger('product_id')->nullable();
+
+            // Definizione FK
+
+            $table->foreign('product_id')
+                  ->references('id')
+                  ->on('products')
+                  ->onDelete('set null');
+                  
             $table->string('author', 50);
             $table->text('description');
             $table->tinyInteger('rate');
