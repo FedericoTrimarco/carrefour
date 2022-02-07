@@ -15,4 +15,9 @@ class Product extends Model
         'thumb',
         'is_new',
     ];
+
+        // Produtc - review
+    public function review() {
+        return $this->hasMany('App\Review');
+    }
 }
