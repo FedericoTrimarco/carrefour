@@ -100,6 +100,13 @@ class ProductController extends Controller
         $request->validate( $this->rules_to_validate(), $this->error_messages() );
 
         $data = $request->all();
+
+        if (array_key_exists('is_new', $data)) {
+            $data['is_new'] = 1;
+        } else{
+            $data['is_new'] = 0;
+        }
+        
         $product->update($data);
 
         return redirect()->route('admin.products.show', $product->id);

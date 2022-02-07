@@ -18,10 +18,10 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.products.store') }}" method="POST">
+    <form action="{{ route('admin.products.update', $product->id) }}" method="POST">
 
-        @method('POST')
         @csrf
+        @method('PATCH')
         <div>
             <label for="brand" class="form-label">Marca:</label>
             <input type="text" name="brand" id="brand" placeholder="insert brand" class="form-control" value="{{ old('brand', $product->brand) }}">

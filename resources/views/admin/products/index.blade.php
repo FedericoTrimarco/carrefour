@@ -25,6 +25,9 @@
                     <th>
                         Brand
                     </th>
+                    <th>
+                        Novità
+                    </th>
                     <th colspan="3">
                         Actions
                     </th>
@@ -42,6 +45,13 @@
                         </td>
                         <td>
                             {{ $product->brand }}
+                        </td>
+                        <td>
+                            @if ($product->is_new == 1)
+                                SI
+                            @else
+                                NO
+                            @endif
                         </td>
                         <td>
                             <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-success">Show</a>
