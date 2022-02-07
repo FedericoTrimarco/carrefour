@@ -28,6 +28,9 @@
                     <th>
                         Novità
                     </th>
+                    <th>
+                        Category
+                    </th>
                     <th colspan="3">
                         Actions
                     </th>
@@ -48,9 +51,16 @@
                         </td>
                         <td>
                             @if ($product->is_new == 1)
-                                SI
+                            SI
                             @else
-                                NO
+                            NO
+                            @endif
+                        </td>
+                        <td>
+                            @if ($product->category)
+                                <a href="{{ route('admin.categories.show', $product->category->id) }}">{{ $product->category->name }}</a>
+                            @else
+                                Uncategorized
                             @endif
                         </td>
                         <td>

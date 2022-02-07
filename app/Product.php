@@ -18,6 +18,7 @@ class Product extends Model
         'description',
         'thumb',
         'is_new',
+        'category_id',
     ];
 
     /**

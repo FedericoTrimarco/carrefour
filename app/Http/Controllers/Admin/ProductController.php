@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 
 class ProductController extends Controller
 {
@@ -27,7 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $categories = Category::all();
+        return view('admin.products.create', compact('categories'));
     }
 
     /**
@@ -42,7 +44,6 @@ class ProductController extends Controller
         $request->validate( $this->rules_to_validate(), $this->error_messages() );
 
         $data = $request->all();
-        // dd($data);
         // 1. new instance of Product
         $new_product = new Product();
 
@@ -83,10 +84,12 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
+        $categories = Category::all();
+
         if(! $product) {
             abort(404);
         }
-        return view('admin.products.edit', compact('product'));
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -149,8 +152,10 @@ class ProductController extends Controller
             'brand' => 'required',
             'name_product' => 'required',
             'price' => 'required',
+            'price_detail' => 'required',
             'description' => 'required',
             'thumb' => 'required',
+            'category_id' => 'required|exists:categories,id'
         ];
     }
 

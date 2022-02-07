@@ -56,10 +56,16 @@
 
         <div>
             <label for="category_id" class="form-label">Categoria:</label>
-            <select name="category_id">
-                @foreach ($categories as $category)
-                    <option value="{{ old('category', $category->id) }}">{{ $category->name }}</option>
-                @endforeach
+            <select name="category_id" class="form-control">
+                <option value="">Uncategorized</option>
+                    @foreach ($categories as $category)
+                        <option
+                            value="{{ $category->id }}"
+                            @if ($category->id == old('category_id', $product->category_id))) selected @endif
+                        >
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
             </select>
             @error('category_id')
                 <div class="text-danger">{{ $message }}</div>

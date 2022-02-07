@@ -26,8 +26,12 @@ Route::middleware('auth')
     ->group(function(){
 
         Route::get('/', 'HomeController@index')->name('home');
-
+        
+        // products
         Route::resource('/products', 'ProductController');
+        
+        // categories
+        Route::resource('/categories', 'CategoryController');
 
         Route::get('/products/trash', 'ProductController@getTrash')->name('products.trash');
 
