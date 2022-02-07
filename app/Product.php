@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    /**
+     * MASS ASSIGNMENT
+     */
     protected $fillable = [
         'brand',
         'name_product',
@@ -15,4 +18,12 @@ class Product extends Model
         'thumb',
         'is_new',
     ];
+
+    /**
+     * RELATIONS
+     */
+    // categories - products (one to many)
+    public function category() {
+        return $this->belongsTo('App\Category');
+    }
 }
