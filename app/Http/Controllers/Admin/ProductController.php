@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $trash = Product::onlyTrashed()->get();
-        return view('admin.products.index', compact('products'));
+        return view('admin.products.index', compact('products', 'trash'));
     }
 
     /**
@@ -129,19 +129,19 @@ class ProductController extends Controller
     public function getTrash()
     {
         $trashed = Product::onlyTrashed()->get();
-        return view('products.trash', compact('trashed'));
+        return view('admin.products.trash', compact('trashed'));
     }
 
     public function restore($id)
     {
         Product::withTrashed()->find($id)->restore();
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }    
 
     public function forceDelete($id) {
         Product::withTrashed()->find($id)->forceDelete();
 
-        return redirect()->route('products.index');
+        return redirect()->route('admin.products.index');
     }
 
     public function rules_to_validate() {
