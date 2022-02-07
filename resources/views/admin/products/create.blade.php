@@ -71,7 +71,12 @@
     
             <div class="d-flex align-items-center py-3">
                 <label for="is_new" class="m-0 mr-2">nuovo prodotto</label>
-                <input type="checkbox" name="is_new" id="is_new" value="1">
+                <input
+                    type="checkbox"
+                    name="is_new"
+                    id="is_new"
+                    @if (old('is_new')) checked @endif
+                >
             </div>
     
     
