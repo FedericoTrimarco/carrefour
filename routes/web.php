@@ -29,4 +29,9 @@ Route::middleware('auth')
 
         Route::resource('/products', 'ProductController');
 
+        Route::get('/products/trash', 'ProductController@getTrash')->name('products.trash');
+
+        Route::match(['get', 'post'], '/restore/{id}', 'ProductController@restore')->name('product.restore');
+
+        Route::match(['get', 'delete'], '/delete/{id}', 'ProductController@forceDelete')->name('product.forceDelete');
     });
