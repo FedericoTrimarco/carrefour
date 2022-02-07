@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    /**
+     * MASS ASSIGNMENT
+     */
     protected $fillable = [
         'brand',
         'name_product',
@@ -17,5 +20,15 @@ class Product extends Model
         'is_new',
     ];
 
+
+    /**
+     * RELATIONS
+     */
+    // categories - products (one to many)
+    public function category() {
+        return $this->belongsTo('App\Category');
+    }
+  
+    // soft deletes
     use SoftDeletes;
 }
