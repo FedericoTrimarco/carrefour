@@ -20,13 +20,17 @@ class Product extends Model
         'is_new',
     ];
 
-
     /**
      * RELATIONS
      */
     // categories - products (one to many)
     public function category() {
         return $this->belongsTo('App\Category');
+    }
+    
+    // Product - review
+    public function review() {
+        return $this->hasMany('App\Review');
     }
   
     // soft deletes
