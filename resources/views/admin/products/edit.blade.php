@@ -55,6 +55,18 @@
         </div>
 
         <div>
+            <label for="category_id" class="form-label">Categoria:</label>
+            <select name="category_id">
+                @foreach ($categories as $category)
+                    <option value="{{ old('category', $category->id) }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+            @error('category_id')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div>
             <label for="description" class="form-label">breve descrizione:</label>
             <input type="text" name="description" id="description" placeholder="insert description" class="form-control" value="{{ old('description', $product->description) }}">
             @error('description')
