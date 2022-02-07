@@ -41,15 +41,22 @@ class ProductController extends Controller
         $request->validate( $this->rules_to_validate(), $this->error_messages() );
 
         $data = $request->all();
-
+        // dd($data);
         // 1. new instance of Product
         $new_product = new Product();
+
+        if (array_key_exists('is_new', $data)) {
+            $data['is_new'] = 1;
+        } else{
+            $data['is_new'] = 0;
+        }
 
         // 2. set properties
         $new_product->fill($data);
 
         // 3. save in 'products' table
         $new_product->save();
+
 
         // 4. redirect to products.show
         return redirect()->route('admin.products.show', $new_product->id);
@@ -108,7 +115,7 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('admin.products.index')->with('deleted', $product->title);
+        return redirect()->route('admin.products.index')->with('deleted', $product->name_product);
     }
 
     public function rules_to_validate() {

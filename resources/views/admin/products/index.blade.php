@@ -6,6 +6,13 @@
             Products archive
         </h1>
 
+        @if (session('deleted'))
+            <div class="alert alert-success my-4">
+                <strong>{{ session('deleted') }}</strong>
+                eliminato correttamente
+            </div>
+        @endif
+        
         <table class="table">
             <thead>
                 <tr>
@@ -46,7 +53,7 @@
                             <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="btn btn-danger" value="Delete">
+                                <input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Sei sicuro di voler eliminare questo elemento? ({{$product->name_product}})')">
                             </form>
                         </td>
                     </tr>
