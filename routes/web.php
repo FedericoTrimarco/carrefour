@@ -33,7 +33,8 @@ Route::middleware('auth')
         // categories
         Route::resource('/categories', 'CategoryController');
 
-        Route::get('/products/trash', 'ProductController@getTrash')->name('products.trash');
+        // trash
+        Route::get('/trash', 'ProductController@getTrash')->name('products.trash');
 
         Route::match(['get', 'post'], '/restore/{id}', 'ProductController@restore')->name('product.restore');
 

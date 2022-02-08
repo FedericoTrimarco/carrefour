@@ -2,9 +2,16 @@
 
 @section('content')
     <section class="products-archive container">
-        <h1 class="text-uppercase mb-5">
-            Products archive
-        </h1>
+        <div class="d-flex justify-content-between align-items-center my-4">
+            <h1 class="text-uppercase">
+                Products archive
+            </h1>
+            @if (!$trash->isEmpty())
+                <a href="{{ route('admin.products.trash') }}" class="text-danger" style="font-size: 30px">
+                    <i class="fas fa-trash"></i>
+                </a>
+            @endif
+        </div>
 
         @if (session('deleted'))
             <div class="alert alert-success my-4">
@@ -73,7 +80,7 @@
                             <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Sei sicuro di voler eliminare questo elemento? ({{$product->name_product}})')">
+                                <input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Vuoi spostare questo elemento nel cestino? ({{$product->name_product}})')">
                             </form>
                         </td>
                     </tr>
