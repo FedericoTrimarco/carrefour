@@ -1,5 +1,5 @@
 <template>
-    <section class="section-card container">
+    <section class="section-card container my-5">
 
         <h1 class="my-5">Our Products</h1>
 

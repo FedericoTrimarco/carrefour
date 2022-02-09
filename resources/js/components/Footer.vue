@@ -107,7 +107,7 @@ export default {
 
 <style lang="scss">
 footer {
-    background-color: #474c5a;
+    background-color: #1b3d79;
     max-width: 100%;
     margin: auto;
     padding: 50px 0;
