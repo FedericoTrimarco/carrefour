@@ -6,7 +6,7 @@
         <div class="row align-items-stretch">
             <div class="col-4 mb-4" v-for="product in products" :key="`prodotto-${product.id}`">
                 <div class="card-product d-flex flex-column justify-content-between p-4 border h-100 position-relative">
-
+                    <span v-if="product.is_new === 1" class="text-danger">NOVITA'</span>
                     <div class="info">
                         <h4>{{ product.brand }}</h4>
                         <h5 class="fw-light">{{ product.name_product }}</h5>

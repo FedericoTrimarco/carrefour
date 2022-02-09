@@ -3237,6 +3237,12 @@ var render = function () {
                   "card-product d-flex flex-column justify-content-between p-4 border h-100 position-relative",
               },
               [
+                product.is_new === 1
+                  ? _c("span", { staticClass: "text-danger" }, [
+                      _vm._v("NOVITA'"),
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
                 _c("div", { staticClass: "info" }, [
                   _c("h4", [_vm._v(_vm._s(product.brand))]),
                   _vm._v(" "),
