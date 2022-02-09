@@ -1,24 +1,26 @@
 <template>
     <div>
         <Header />
-        <h1>lello</h1>
+        <main>
+            <SectionCard />
+        </main>
 
     </div>
 </template>
 
 <script>
 import Header from '../components/Header.vue';
+import SectionCard from '../components/SectionCard.vue';
 export default {
     name: 'App',
     components: {
         Header,
+        SectionCard,
     }
 }
 </script>
 
 <style lang="scss">
 // @import '../../sass/_variables.scss';
-    h1{
-        color: red;
-    }
+
 </style>
