@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::namespace('Api')->group( function() {
+Route::namespace('Api')->group(function() {
+    // Products get api route
     Route::get('/products', 'ProductController@index');
+
+    // Categories get api route
+    Route::get('/products/categories', 'CategoryController@index');
 });
