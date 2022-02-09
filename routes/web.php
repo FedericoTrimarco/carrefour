@@ -13,30 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.home');
-});
 
 Auth::routes();
 
 Route::middleware('auth')
-    ->namespace('Admin')
-    ->name('admin.')
-    ->prefix('admin')
-    ->group(function(){
+->namespace('Admin')
+->name('admin.')
+->prefix('admin')
+->group(function(){
+    
+    Route::get('/', 'HomeController@index')->name('home');
+    
+    // products
+    Route::resource('/products', 'ProductController');
+    
+    // categories
+    Route::resource('/categories', 'CategoryController');
+    
+    // trash
+    Route::get('/trash', 'ProductController@getTrash')->name('products.trash');
+    
+    Route::match(['get', 'post'], '/restore/{id}', 'ProductController@restore')->name('product.restore');
+    
+    Route::match(['get', 'delete'], '/delete/{id}', 'ProductController@forceDelete')->name('product.forceDelete');
+});
 
-        Route::get('/', 'HomeController@index')->name('home');
-        
-        // products
-        Route::resource('/products', 'ProductController');
-        
-        // categories
-        Route::resource('/categories', 'CategoryController');
-
-        // trash
-        Route::get('/trash', 'ProductController@getTrash')->name('products.trash');
-
-        Route::match(['get', 'post'], '/restore/{id}', 'ProductController@restore')->name('product.restore');
-
-        Route::match(['get', 'delete'], '/delete/{id}', 'ProductController@forceDelete')->name('product.forceDelete');
-    });
+Route::get('{any?}', function () {
+    return view('guest.home');
+})->where('any', '.*');
