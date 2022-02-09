@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style lang="scss">
+// @import '../../sass/_variables.scss';
     h1{
         color: red;
     }
