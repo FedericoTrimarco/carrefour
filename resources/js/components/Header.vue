@@ -5,7 +5,7 @@
           <img src="https://www.carrefour.it/on/demandware.static/Sites-carrefour-IT-Site/-/default/dwd7bbaf67/images/carrefour-logotype.svg" alt="Logo carrefour">
           <img src="https://www.carrefour.it/on/demandware.static/Sites-carrefour-IT-Site/-/default/dw6d5c338b/images/carrefour-logomark.svg" alt="">
         </a>
-        <input type="text">
+        <input type="text" placeholder="Di che cosa hai bisogno?" class="form-control w-50">
         <a href="#">
           <img src="https://www.carrefour.it/on/demandware.static/Sites-carrefour-IT-Site/-/default/dw59c9c6e7/images/payback-ball.png" alt="">
         </a>

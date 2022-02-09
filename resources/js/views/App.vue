@@ -1,6 +1,7 @@
 <template>
     <div>
         <Header />
+        <Categories />
         <main>
             <SectionCard />
         </main>
@@ -10,12 +11,14 @@
 
 <script>
 import Header from '../components/Header.vue';
+import Categories from '../components/Categories.vue';
 import SectionCard from '../components/SectionCard.vue';
 export default {
     name: 'App',
     components: {
         Header,
         SectionCard,
+        Categories,
     }
 }
 </script>
