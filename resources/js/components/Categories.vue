@@ -1,12 +1,18 @@
 <template>
     <section class="categories" v-if="categories !== null">
-        <ul class="d-flex flex-wrap justify-content-center container">
+        <button class="btn left btn-primary" @click="leftTranslate">
+            <i class="fas fa-angle-left"></i>
+        </button>
+        <ul>
             <Category 
                 v-for="category in categories" 
                 :key="`category-${category.id}`" 
                 :categoryData="category"
             />
         </ul>
+        <button class="btn right btn-primary" @click="rightTranslate">
+            <i class="fas fa-angle-right"></i>
+        </button>
     </section>
 </template>
 
@@ -27,6 +33,7 @@ export default {
     data() {
         return {
             categories: null,
+            translateX: 0,
         }
     },
     created() {
@@ -39,6 +46,12 @@ export default {
                     this.categories = res.data;
                 })
                 .catch(err => console.log(err));
+        },
+        leftTranslate() {
+            //
+        },
+        rightTranslate() {
+            //
         }
     }
 }
@@ -46,8 +59,37 @@ export default {
 
 <style lang="scss" scoped>
 section.categories {
+    position: relative;
+    overflow: hidden;
+
+    .btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &.left {
+            left: 50px;
+        }
+
+        &.right {
+            right: 50px;
+        }
+    }
+
     ul {
         list-style: none;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin: 0;
+        transition: translateX .5s ease-in-out;
     }
 }
 </style>
