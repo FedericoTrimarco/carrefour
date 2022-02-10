@@ -2096,6 +2096,76 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Footer"
 });
@@ -2176,6 +2246,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
 //
 //
 //
@@ -2362,7 +2434,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".section-card .card-product[data-v-577ec80c] {\n  border-radius: 10px;\n}\n.section-card h4[data-v-577ec80c], .section-card h5[data-v-577ec80c], .section-card .price[data-v-577ec80c] {\n  color: #1b3d79;\n}", ""]);
+exports.push([module.i, ".section-card .card-product[data-v-577ec80c] {\n  border-radius: 10px;\n  cursor: pointer;\n}\n.section-card .card-product[data-v-577ec80c]:hover {\n  outline: 3px solid #3490dc;\n  outline-offset: 3px;\n}\n.section-card h1[data-v-577ec80c], .section-card h4[data-v-577ec80c], .section-card h5[data-v-577ec80c], .section-card .price[data-v-577ec80c] {\n  color: #1b3d79;\n}", ""]);
 
 // exports
 
@@ -3743,76 +3815,194 @@ var staticRenderFns = [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col" }, [
             _c("div", { staticClass: "lello" }, [
-              _c("h4", [_vm._v("Company")]),
+              _c("h4", [_vm._v("AGEVOLAZIONI")]),
             ]),
             _vm._v(" "),
             _c("ul", [
               _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("about us")]),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/landing/agevolazioni-donne-gravidanza-neogenitori.html?_gl=1*1b07e4u*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Donne in Gravidanza e Neogenitori")]
+                ),
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("our service")]),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/landing/agevolazioni-over-60.html?_gl=1*1b07e4u*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Over 60")]
+                ),
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("privacy policy")]),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/landing/agevolazioni-diversamente-abili.html?_gl=1*1b07e4u*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Diversamente Abili")]
+                ),
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _vm._v("affiliate program"),
-                ]),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/agevolazioni-consegna-spesa-online.html?_gl=1*1b07e4u*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Regolamento agevolazioni")]
+                ),
               ]),
             ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col" }, [
             _c("div", { staticClass: "lello" }, [
-              _c("h4", [_vm._v("Company")]),
+              _c("h4", [_vm._v("AQUISTI ONLINE")]),
             ]),
             _vm._v(" "),
             _c("ul", [
-              _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("FAQ")])]),
-              _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Shipping")]),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/landing/carrefour-now.html?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Spesa veloce by Carrefour NOW")]
+                ),
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("returns")]),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/spesa-online/?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Spesa Online")]
+                ),
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("order status")]),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/promozioni/?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Offerte Online")]
+                ),
               ]),
               _vm._v(" "),
               _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("payment options")]),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/carrefour-club.html?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Abbonamento Carrefour Club")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/gift-card-acquisti-online.html?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Pagamento tramite Gift Card")]
+                ),
               ]),
             ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col" }, [
             _c("div", { staticClass: "lello" }, [
-              _c("h4", [_vm._v("Company")]),
+              _c("h4", [_vm._v("SERVIZI")]),
             ]),
             _vm._v(" "),
             _c("ul", [
-              _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("watch")])]),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/payback?_gl=1*11hyg8g*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Carta SpesAmica PAYBACK")]
+                ),
+              ]),
               _vm._v(" "),
-              _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("bag")])]),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/giftcard.html?_gl=1*11hyg8g*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Git card")]
+                ),
+              ]),
               _vm._v(" "),
-              _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("shoes")])]),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/servizi-finanziari.html?_gl=1*1ftbjcq*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Servizi Findomestic")]
+                ),
+              ]),
               _vm._v(" "),
-              _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("dress")])]),
+              _c("li", [
+                _c(
+                  "a",
+                  { attrs: { href: "https://carrefoursalute.welion.it/" } },
+                  [_vm._v("Carrefour Salute")]
+                ),
+              ]),
+              _vm._v(" "),
+              _c("li", [
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "https://www.carrefour.it/richiamo-prodotti.html?_gl=1*mmggc9*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB",
+                    },
+                  },
+                  [_vm._v("Richiamo prodotti")]
+                ),
+              ]),
             ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "col" }, [
-            _c("div", { staticClass: "lello" }, [
-              _c("h4", [_vm._v("Company")]),
-            ]),
+            _c("div", { staticClass: "lello" }, [_c("h4", [_vm._v("AUTORI")])]),
             _vm._v(" "),
             _c("ul", [
               _c("div", { staticClass: "git_links" }, [
@@ -4083,12 +4273,6 @@ var render = function () {
                   "card-product d-flex flex-column justify-content-between p-4 border h-100 position-relative",
               },
               [
-                product.is_new === 1
-                  ? _c("span", { staticClass: "text-danger" }, [
-                      _vm._v("NOVITA'"),
-                    ])
-                  : _vm._e(),
-                _vm._v(" "),
                 _c("div", { staticClass: "info" }, [
                   _c("h4", [_vm._v(_vm._s(product.brand))]),
                   _vm._v(" "),
@@ -4104,13 +4288,25 @@ var render = function () {
                       "img-product d-flex justify-content-center my-5",
                   },
                   [
-                    _c("img", {
-                      staticClass: "w-50",
-                      attrs: {
-                        src: "" + product.thumb,
-                        alt: "" + product.name_product,
-                      },
-                    }),
+                    _c("div", { staticClass: "w-50 position-relative" }, [
+                      product.is_new === 1
+                        ? _c("img", {
+                            staticClass: "w-25 position-absolute top-0 end-0",
+                            attrs: {
+                              src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc5_at9g0TttKAdjl0GjJ2hYZY_6PX5TSaQ&usqp=CAU",
+                              alt: "novità-logo",
+                            },
+                          })
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _c("img", {
+                        staticClass: "w-100",
+                        attrs: {
+                          src: "" + product.thumb,
+                          alt: "" + product.name_product,
+                        },
+                      }),
+                    ]),
                   ]
                 ),
                 _vm._v(" "),
