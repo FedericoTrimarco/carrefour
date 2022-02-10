@@ -4,42 +4,112 @@
             <div class="row">
                 <div class="col">
                     <div class="lello">
-                        <h4>Company</h4>
+                        <h4>AGEVOLAZIONI</h4>
                     </div>
                     <ul>
-                        <li><a href="#">about us</a></li>
-                        <li><a href="#">our service</a></li>
-                        <li><a href="#">privacy policy</a></li>
-                        <li><a href="#">affiliate program</a></li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/landing/agevolazioni-donne-gravidanza-neogenitori.html?_gl=1*1b07e4u*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Donne in Gravidanza e Neogenitori</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/landing/agevolazioni-over-60.html?_gl=1*1b07e4u*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Over 60</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/landing/agevolazioni-diversamente-abili.html?_gl=1*1b07e4u*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Diversamente Abili</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/agevolazioni-consegna-spesa-online.html?_gl=1*1b07e4u*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Regolamento agevolazioni</a
+                            >
+                        </li>
                     </ul>
                 </div>
                 <div class="col">
                     <div class="lello">
-                        <h4>Company</h4>
+                        <h4>AQUISTI ONLINE</h4>
                     </div>
 
                     <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">returns</a></li>
-                        <li><a href="#">order status</a></li>
-                        <li><a href="#">payment options</a></li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/landing/carrefour-now.html?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Spesa veloce by Carrefour NOW</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/spesa-online/?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Spesa Online</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/promozioni/?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Offerte Online</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/carrefour-club.html?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Abbonamento Carrefour Club</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/gift-card-acquisti-online.html?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Pagamento tramite Gift Card</a
+                            >
+                        </li>
                     </ul>
                 </div>
                 <div class="col">
                     <div class="lello">
-                        <h4>Company</h4>
+                        <h4>SERVIZI</h4>
                     </div>
                     <ul>
-                        <li><a href="#">watch</a></li>
-                        <li><a href="#">bag</a></li>
-                        <li><a href="#">shoes</a></li>
-                        <li><a href="#">dress</a></li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/payback?_gl=1*11hyg8g*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Carta SpesAmica PAYBACK</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/giftcard.html?_gl=1*11hyg8g*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Git card</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/servizi-finanziari.html?_gl=1*1ftbjcq*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Servizi Findomestic</a
+                            >
+                        </li>
+                        <li>
+                            <a href="https://carrefoursalute.welion.it/"
+                                >Carrefour Salute</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.carrefour.it/richiamo-prodotti.html?_gl=1*mmggc9*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
+                                >Richiamo prodotti</a
+                            >
+                        </li>
                     </ul>
                 </div>
                 <div class="col">
                     <div class="lello">
-                        <h4>Company</h4>
+                        <h4>AUTORI</h4>
                     </div>
                     <ul>
                         <div class="git_links">
