@@ -4,7 +4,7 @@
         <h1 class="my-5">Our Products</h1>
 
         <div class="row align-items-stretch">
-            <div class="col-4 mb-4" v-for="product in products" :key="`prodotto-${product.id}`">
+            <div class="col-3 mb-4" v-for="product in products" :key="`prodotto-${product.id}`">
                 <div class="card-product d-flex flex-column justify-content-between p-4 border h-100 position-relative">
                     <div class="info">
                         <h4>{{ product.brand }}</h4>

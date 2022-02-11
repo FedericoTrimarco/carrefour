@@ -1,12 +1,12 @@
 <template>
-    <section class="categories" v-if="categories !== null" @mouseenter="drag">
+    <section class="categories" v-if="categories !== null">
         <div class="selector left">
-            <button class="btn btn-primary" @click="leftTranslate">
+            <button class="btn btn-primary" @click="scrollRight">
                 <i class="fas fa-angle-left"></i>
             </button>
         </div>
 
-        <ul id="drag">
+        <ul id="drag" ref="list">
             <Category 
                 v-for="category in categories" 
                 :key="`category-${category.id}`" 
@@ -15,7 +15,7 @@
         </ul>
 
         <div class="selector right">
-            <button class="btn right btn-primary" @click="rightTranslate">
+            <button class="btn right btn-primary" @click="scrollLeft">
                 <i class="fas fa-angle-right"></i>
             </button>
         </div>
@@ -47,11 +47,11 @@ export default {
             translateX: 0,
         }
     },
-    computed: {
-        ul() {
-            return document.querySelector('.categories ul');
-        },
-    },
+    // computed: {
+    //     ul() {
+    //         return document.querySelector('.categories ul');
+    //     },
+    // },
     created() {
         this.getCategories();
     },
@@ -63,25 +63,23 @@ export default {
                 })
                 .catch(err => console.log(err));
         },
-        leftTranslate() {
-            if (this.translateX >= 150) return;
-            this.translateX += 150;
-            gsap.to(".categories ul", {duration: 0.5, x: this.translateX});
+        scrollRight(){
+            this.$refs.list.scrollLeft -= 250;
+            console.log('lello1');
         },
-        rightTranslate() {
-            if (Math.abs(this.translateX) > this.ul.offsetWidth - 500) return;
-            this.translateX -= 150;
-            gsap.to(".categories ul", {duration: 0.5, x: this.translateX});
+        scrollLeft(){
+            this.$refs.list.scrollLeft += 250;
+            console.log('lello2');
         },
-        drag() {
-            this.ul.addEventListener('mouseover', () => {
-                this.translateX = parseInt(ul.style.transform.split('px, ')[0].substr(13) * (-1));
-            });
-            Draggable.create("#drag", {
-                type: "x",
-                bounds: {minX: 150, maxX: this.ul.offsetWidth * (-1)},
-            });
-        }
+        // drag() {
+        //     this.ul.addEventListener('mouseover', () => {
+        //         this.translateX = parseInt(ul.style.transform.split('px, ')[0].substr(13) * (-1));
+        //     });
+        //     Draggable.create("#drag", {
+        //         type: "x",
+        //         bounds: {minX: 150, maxX: this.ul.offsetWidth * (-1)},
+        //     });
+        // }
     }
 }
 </script>
@@ -89,7 +87,7 @@ export default {
 <style lang="scss" scoped>
 section.categories {
     position: relative;
-    overflow: hidden;
+    
 
     .selector {
         position: absolute;
@@ -136,7 +134,13 @@ section.categories {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
-        margin: 0 0 0 100px;
+        margin: 0 90px;
+        padding: 0 50px;
+        overflow: scroll;
+        scroll-behavior: smooth;
+        &::-webkit-scrollbar {
+                display: none;
+            }
     }
 }
 </style>
