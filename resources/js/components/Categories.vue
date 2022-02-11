@@ -50,7 +50,7 @@ export default {
     computed: {
         ul() {
             return document.querySelector('.categories ul');
-        }
+        },
     },
     created() {
         this.getCategories();
