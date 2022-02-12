@@ -27,7 +27,7 @@ class UpdateSubCategoryTypesTable extends Migration
     public function down()
     {
         Schema::table('sub_category_types', function(Blueprint $table) {
-            $table->dropForeign('sub_category_types_sub_category_id_foreign');
+            $table->dropForeign(['sub_category_id']);
         });
     }
 }

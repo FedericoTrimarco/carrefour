@@ -30,8 +30,8 @@ class SetFkProductsDescriptionsTable extends Migration
     public function down()
     {
         Schema::table('products_descriptions', function (Blueprint $table) {
-            $table->dropForeign('products_product_id_foreign');
-            $table->dropForeign('products_descriptions_types_description_type_id_foreign');
+            $table->dropForeign(['product_id']);
+            $table->dropForeign(['description_type_id']);
         });
     }
 }

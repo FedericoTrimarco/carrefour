@@ -30,7 +30,7 @@ class UpdateSubCategoriesTable extends Migration
     public function down()
     {
         Schema::table('sub_categories', function (Blueprint $table) {
-            $table->dropForeign('sub_categories_category_id_foreign');
+            $table->dropForeign(['category_id']);
         });
     }
 }

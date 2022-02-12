@@ -48,10 +48,10 @@ class UpdateProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign('products_category_id_foreign');
-            $table->dropForeign('products_sub_category_id_foreign');
-            $table->dropForeign('products_sub_category_type_id_foreign');
-            $table->dropForeign('products_brand_id_foreign');
+            $table->dropForeign(['brand_id']);
+            $table->dropForeign(['sub_category_type_id']);
+            $table->dropForeign(['sub_category_id']);
+            $table->dropForeign(['category_id']);
         });
     }
 }
