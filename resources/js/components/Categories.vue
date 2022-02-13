@@ -65,11 +65,9 @@ export default {
         },
         scrollRight(){
             this.$refs.list.scrollLeft -= 250;
-            console.log('lello1');
         },
         scrollLeft(){
             this.$refs.list.scrollLeft += 250;
-            console.log('lello2');
         },
         // drag() {
         //     this.ul.addEventListener('mouseover', () => {

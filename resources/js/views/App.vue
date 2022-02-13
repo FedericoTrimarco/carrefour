@@ -4,7 +4,7 @@
         <Categories />
 
         <main>
-            <SectionCard />
+            <router-view></router-view>
         </main>
 
         <Footer />
@@ -14,13 +14,13 @@
 <script>
 import Header from '../components/Header.vue';
 import Categories from '../components/Categories.vue';
-import SectionCard from '../components/SectionCard.vue';
+// import SectionCard from '../components/SectionCard.vue';
 import Footer from '../components/Footer.vue';
 export default {
     name: 'App',
     components: {
         Header,
-        SectionCard,
+        // SectionCard,
         Categories,
         Footer,
     }
