@@ -20,7 +20,7 @@
             </div>
             <div class="col-4">
                 <div
-                    v-show="sending"
+                    v-show="isSent"
                     class="banner banner-success"
                 >
                     Recensione inviata correttamente
@@ -29,7 +29,7 @@
                 <form @submit.prevent="reviewForm">
                     <div class="mb-3">
                         <label for="author" class="form-label">Inserisci il tuo nome</label>
-                        <input type="text" name="author" id="author" v-model="author" class="form-control">
+                        <input type="text" name="author" id="author" v-model.trim="author" class="form-control">
 
                         <div 
                             v-for="(error,index) in errors.author"
@@ -42,7 +42,7 @@
 
                     <div class="mb-3">
                         <label for="description" class="form-label">Inserisci la tua recensione</label>
-                        <textarea name="description" id="description" v-model="description" class="form-control"></textarea>
+                        <textarea name="description" id="description" v-model.trim="description" class="form-control"></textarea>
 
                         <div 
                             v-for="(error,index) in errors.description"
@@ -55,7 +55,7 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Inserisci la tua mail</label>
-                        <input type="text" name="email" id="email" v-model="email" class="form-control">
+                        <input type="text" name="email" id="email" v-model.trim="email" class="form-control">
 
                         <div 
                             v-for="(error,index) in errors.email"
@@ -95,16 +95,18 @@ export default {
 
     props: {
         mainArray: Array,
+        product_id: Number,
     },
 
     data() {
         return {
-        author:'',
-        description:'',
-        email:'',
-        rate:'',
-        errors: {},
-        sending: false,
+            author: '',
+            description: '',
+            email: '',
+            rate: '',
+            errors: {},
+            sending: false,
+            isSent: false,
         };
     },
 
@@ -112,13 +114,13 @@ export default {
         reviewForm() {
             this.sending = true;
             axios.post('http://127.0.0.1:8000/api/reviews', {
+                product_id: this.product_id,
                 author: this.author,
                 rate: this.rate,
                 email: this.email,
                 description: this.description,
             })
             .then(res => {
-                console.log(res.data);
                 this.sending = false;
                 if(res.data.errors) {
                     this.errors = res.data.errors;
@@ -127,7 +129,7 @@ export default {
                     this.rate = '';
                     this.email = '';
                     this.description = '';
-                    
+                    this.isSent = true;
                 }
             })
             .catch(err => {

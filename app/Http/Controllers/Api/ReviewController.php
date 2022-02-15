@@ -10,15 +10,17 @@ use App\Review;
 class ReviewController extends Controller
 {
     public function store(Request $request) {
-        //custom validator
+        // Custom validator
         $validator = Validator::make($request->all(), [
-            'author' => 'required',
-            'description' => 'required',
+            'author' => 'required|string|max:50',
+            'description' => 'required|string|max:50',
             'email' => 'required|email',
-            'rate' => 'required'
+            'rate' => 'required|integer|min:0|max:5'
+        ], [
+            'rate.min|rate.max' => 'Il voto deve essere compreso tra 0 e 5'
         ]);
 
-        //manage validator failure
+        // Manage validator failure
         if($validator->fails()) {
             return response()->json([
                 'errors' => $validator->errors(),
@@ -27,9 +29,9 @@ class ReviewController extends Controller
 
         $data = $request->all();
 
-        //save to DB
+        // Save to DB
         $new_review = new Review();
-        $data['rate'] = intval($data['rate']);
+
         $new_review->fill($data);
 
         $new_review->save();

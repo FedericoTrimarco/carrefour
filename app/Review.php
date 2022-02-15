@@ -15,8 +15,10 @@ class Review extends Model
    * FILLABLE
    */
   protected $fillable = [
+    'product_id',
     'author',
     'description',
+    'email',
     'rate'
   ];
 
