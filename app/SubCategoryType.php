@@ -4,29 +4,29 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class SubCategoryType extends Model
 {
     /**
      * TABLE NAME
      */
-    protected $table = 'categories';
+    protected $table = 'sub_category_types';
 
     /**
      * FILLABLE
      */
     protected $fillable = [
-        'name',
+        'name'
     ];
-    
+
     /**
      * RELATIONS
      */
-    // categories - sub_categories (one to many)
-    public function subCategories() {
-        return $this->hasMany('App\SubCategory');
+    // sub_category_types - sub_categories (one to many)
+    public function subCategory() {
+        return $this->belongsTo('App\SubCategory');
     }
 
-    // categories - products (one to many)
+    // sub_category_types - products (many to one)
     public function products() {
         return $this->hasMany('App\Product');
     }

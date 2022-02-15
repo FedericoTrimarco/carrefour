@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateProductsTable extends Migration
+class UpdateSubCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class UpdateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            // Aggiungo colonna per FK
-            $table->unsignedBigInteger('category_id')->nullable()->after('id');
-
-            // Definizione FK constrain
+        Schema::table('sub_categories', function (Blueprint $table) {
+            // Definizione FK categories table
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
@@ -32,9 +29,8 @@ class UpdateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->dropForeign('products_category_id_foreign');
-            $table->dropColumn('category_id');
+        Schema::table('sub_categories', function (Blueprint $table) {
+            $table->dropForeign(['category_id']);
         });
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 // Model import
 use App\Category;
@@ -50,6 +51,7 @@ class CategoriesTableSeeder extends Seeder
 
             // Associa le colonne alla nuova istanza
             $new_category->name = $category;
+            $new_category->slug = Str::slug($category, '-');
 
             // Salva l'istanza come nuovo record nel db
             $new_category->save();
