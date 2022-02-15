@@ -46,22 +46,31 @@
 
                 </div>
             </div>
+                <ReviewForm/>
         </div>
     </section>
 </template>
 
 <script>
 import axios from 'axios';
+import ReviewForm from '../components/ReviewForm.vue';
 export default {
     name: 'ProductDetail',
+
+    components: {
+        ReviewForm,
+    },
+
     data() {
         return {
             product: null,
         }
     },
+
     created() {
         this.getPosts();
     },
+
     methods: {
         getPosts() {
             axios.get(`http://127.0.0.1:8000/api/products/${this.$route.params.slug}`)

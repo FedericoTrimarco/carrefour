@@ -6,7 +6,7 @@
                     <div class="lello">
                         <h4>AGEVOLAZIONI</h4>
                     </div>
-                    <ul>
+                    <ul class="footer-list">
                         <li>
                             <a
                                 href="https://www.carrefour.it/landing/agevolazioni-donne-gravidanza-neogenitori.html?_gl=1*1b07e4u*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
@@ -38,7 +38,7 @@
                         <h4>AQUISTI ONLINE</h4>
                     </div>
 
-                    <ul>
+                    <ul class="footer-list">
                         <li>
                             <a
                                 href="https://www.carrefour.it/landing/carrefour-now.html?_gl=1*1ey720t*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
@@ -75,7 +75,7 @@
                     <div class="lello">
                         <h4>SERVIZI</h4>
                     </div>
-                    <ul>
+                    <ul class="footer-list">
                         <li>
                             <a
                                 href="https://www.carrefour.it/payback?_gl=1*11hyg8g*_up*MQ..&gclid=Cj0KCQiAjJOQBhCkARIsAEKMtO0VHW1s7QkbvEX3tr1ynN_3cipFPQ4dcFqcFiunS9HFjIfBk_IwZIMaApQBEALw_wcB"
@@ -111,7 +111,7 @@
                     <div class="lello">
                         <h4>AUTORI</h4>
                     </div>
-                    <ul>
+                    <ul class="footer-list">
                         <div class="git_links">
                             <li>
                                 <a
@@ -219,7 +219,7 @@ ul li a {
     transition: all 0.3s ease;
 }
 
-ul li a:hover {
+.footer-list li a:hover {
     color: #ffffff;
     padding-left: 8px;
 }
