@@ -12,14 +12,14 @@
                 >
                     <div class="card-product d-flex flex-column justify-content-between p-4 border h-100 position-relative">
                         <div class="info">
-                            <h4>{{ product.brand }}</h4>
-                            <h5 class="fw-light">{{ product.name_product }}</h5>
+                            <h4>{{ product.brand.name }}</h4>
+                            <h5 class="fw-light">{{ product.name }}</h5>
                         </div>
 
                         <div class="img-product d-flex justify-content-center my-5">
                             <div class="w-50 position-relative">
                                 <img v-if="product.is_new === 1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc5_at9g0TttKAdjl0GjJ2hYZY_6PX5TSaQ&usqp=CAU" alt="novità-logo" class="w-25 position-absolute top-0 end-0">
-                                <img :src="`${product.thumb}`" :alt="`${product.name_product}`" class="w-100">
+                                <img :src="`${product.thumb}`" :alt="`${product.name}`" class="w-100">
                             </div>
                         </div>
 

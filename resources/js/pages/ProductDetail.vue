@@ -1,11 +1,14 @@
 <template>
     <section class="product-detail py-5">
-        <div class="container">
-            <div class="row">
+        <div class="container" v-if="product">
+            <div class="row" >
                 <div class="col-6 d-flex justify-content-center">
                     <!-- product img with zoom -->
                     <div class="product-img border border-primary w-75">
                         <zoom-on-hover v-if="product" :img-normal="product.thumb"></zoom-on-hover>
+                        <!-- <figure v-if="product.thumb">
+                            <img :src="product.thumb" :alt="product.name">
+                        </figure> -->
 
                         <div v-else class="spinner-border" role="status">
                             <span class="visually-hidden">Loading...</span>
@@ -48,6 +51,7 @@
             </div>
             <ReviewForm :mainArray="product.reviews"/>
         </div>
+        <h1 v-else>lelelel</h1>
     </section>
 </template>
 
@@ -75,10 +79,12 @@ export default {
         getPosts() {
             axios.get(`http://127.0.0.1:8000/api/products/${this.$route.params.slug}`)
                 .then(res => {
-                //  if (res.data.not_found) {
-                //         this.$router.push({ name: 'not_found'})
-                //     } else {
+                //   if (res.data.not_found) {
+                //          this.$router.push({ name: 'not_found'})
+                //      } else {
                         this.product = res.data;
+                        // console.log(res.data);
+                        console.log(res.data);
                     // }
                 })
                 .catch(err => log.error(err));

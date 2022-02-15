@@ -12,10 +12,10 @@ class ReviewController extends Controller
     public function store(Request $request) {
         //custom validator
         $validator = Validator::make($request->all(), [
-            'author' => 'required|size:50',
+            'author' => 'required',
             'description' => 'required',
-            'email' => 'required|email|size:50',
-            'rate' => 'required|numeric|min:0|max:5'
+            'email' => 'required|email',
+            'rate' => 'required'
         ]);
 
         //manage validator failure
@@ -29,7 +29,7 @@ class ReviewController extends Controller
 
         //save to DB
         $new_review = new Review();
-
+        $data['rate'] = intval($data['rate']);
         $new_review->fill($data);
 
         $new_review->save();

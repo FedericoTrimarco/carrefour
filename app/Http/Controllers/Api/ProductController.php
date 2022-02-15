@@ -9,16 +9,21 @@ use App\Product;
 class ProductController extends Controller
 {
     public function index(){
-        $products = Product::all();
+        $products = Product::with('brand')->get();
+        foreach($products as $product) {
+            $product->thumb = url('storage/' . $product->thumb);
+        }
 
         return response()->json($products);
     }
 
     public function show($slug){
-        $product = Product::where('slug', $slug)->with(['brand', 'reviews'])->get();
-        // if (! $product) {
-        //     $product['not_found'] = true;
-        // }
+        $product = Product::where('slug', $slug)->with(['brand', 'reviews'])->first();
+        if (! $product) {
+            $product['not_found'] = true;
+        } elseif ($product) {
+            $product->thumb = url('storage/' . $product->thumb);
+        }
         return response()->json($product);
     }
 }

@@ -89,6 +89,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     name: 'ReviewForm',
 
@@ -106,6 +107,35 @@ export default {
         sending: false,
         };
     },
+
+    methods: {
+        reviewForm() {
+            this.sending = true;
+            axios.post('http://127.0.0.1:8000/api/reviews', {
+                author: this.author,
+                rate: this.rate,
+                email: this.email,
+                description: this.description,
+            })
+            .then(res => {
+                console.log(res.data);
+                this.sending = false;
+                if(res.data.errors) {
+                    this.errors = res.data.errors;
+                } else {
+                    this.author = '';
+                    this.rate = '';
+                    this.email = '';
+                    this.description = '';
+                    
+                }
+            })
+            .catch(err => {
+                this.sending = false;
+                console.log(err);
+            })
+        }
+    }
 }
 </script>
 
