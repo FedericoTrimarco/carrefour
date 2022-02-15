@@ -15,7 +15,7 @@ class ProductController extends Controller
     }
 
     public function show($slug){
-        $product = Product::where('slug', $slug)->with('brand')->first();
+        $product = Product::where('slug', $slug)->with(['brand', 'reviews'])->get();
         // if (! $product) {
         //     $product['not_found'] = true;
         // }
