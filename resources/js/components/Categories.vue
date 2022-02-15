@@ -134,11 +134,11 @@ section.categories {
         align-items: center;
         margin: 0 90px;
         padding: 0 50px;
-        overflow: scroll;
+        overflow: hidden;
         scroll-behavior: smooth;
-        &::-webkit-scrollbar {
+       /*  &::-webkit-scrollbar {
                 display: none;
-            }
+            } */
     }
 }
 </style>
