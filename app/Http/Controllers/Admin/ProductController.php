@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Product;
 use App\Brand;
 use App\Category;
@@ -44,14 +45,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //validation
-        $request->validate( $this->rules_to_validate(), $this->error_messages() );
+        $request->validate($this->rules_to_validate_store(), $this->error_messages());
 
         $data = $request->all();
 
+        // Brand set
         $new_brand = new Brand();
         $new_brand->name = $data['brand'];
         $new_brand->save();
         $brand = Brand::where('name', $data['brand'])->first();
+
+        // Save cover image in storage if exists
+        if (array_key_exists('thumb', $data)) {
+            $data['thumb'] = Storage::put('product-images', $data['thumb']);
+        }
 
         // 1. new instance of Product
         $new_product = new Product();
@@ -74,11 +81,12 @@ class ProductController extends Controller
         }
 
         $data['slug'] = $slug;
+
         // 2. set properties
         $new_product->fill($data);
+
         // 3. save in 'products' table
         $new_product->save();
-
 
         // 4. redirect to products.show
         return redirect()->route('admin.products.show', $new_product->id);
@@ -121,7 +129,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        $request->validate( $this->rules_to_validate(), $this->error_messages() );
+        $request->validate($this->rules_to_validate_update(), $this->error_messages());
 
         $data = $request->all();
 
@@ -129,6 +137,12 @@ class ProductController extends Controller
             $data['is_new'] = 1;
         } else{
             $data['is_new'] = 0;
+        }
+
+        // Substitute product image if exist in form
+        if (array_key_exists('thumb', $data)) {
+            Storage::delete($product->thumb);
+            $data['thumb'] = Storage::put('product-images', $data['thumb']);
         }
         
         if ($data['name'] != $product->name) {
@@ -177,26 +191,41 @@ class ProductController extends Controller
     }    
 
     public function forceDelete($id) {
-        Product::withTrashed()->find($id)->forceDelete();
+        $product = Product::withTrashed()->find($id);
+        Storage::delete($product->thumb);
+        $product->forceDelete();
 
         return redirect()->route('admin.products.index');
     }
 
-    public function rules_to_validate() {
+    private function rules_to_validate_store() {
         return [
             'brand' => 'required',
             'name' => 'required',
             'price' => 'required',
             'price_detail' => 'required',
             'description' => 'required',
-            'thumb' => 'required',
+            'thumb' => 'required|file|mimes:jpeg,jpg,png',
             'category_id' => 'required|exists:categories,id'
         ];
     }
 
-    public function error_messages() {
+    private function rules_to_validate_update() {
         return [
-            'required' => "Field ':attribute' is required"
+            'brand' => 'required',
+            'name' => 'required',
+            'price' => 'required',
+            'price_detail' => 'required',
+            'description' => 'required',
+            'thumb' => 'file|mimes:jpeg,jpg,png',
+            'category_id' => 'required|exists:categories,id'
+        ];
+    }
+
+    private function error_messages() {
+        return [
+            'required' => "Field ':attribute' is required",
+            'thumb.required' => "È obbligatorio caricare un'immagine!"
         ];
     }
 }

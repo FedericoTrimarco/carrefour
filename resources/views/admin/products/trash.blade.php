@@ -16,12 +16,12 @@
                 @foreach ($trashed as $trash_item)
                     <tr>
                         <td>{{ $trash_item->id }}</td>
-                        <td>{{ $trash_item->name_product }}</td>
+                        <td>{{ $trash_item->name }}</td>
                         <td>
                             <a href="{{ route('admin.product.restore', $trash_item->id) }}" class="btn btn-primary">Restore</a>
                         </td>
                         <td>
-                            <a href="{{ route('admin.product.forceDelete', $trash_item->id) }}" class="btn btn-danger" onclick="return confirm('Eliminare definitivamente questo elemento? ({{ $trash_item->name_product }})' )">Delete</a>
+                            <a href="{{ route('admin.product.forceDelete', $trash_item->id) }}" class="btn btn-danger" onclick="return confirm('Eliminare definitivamente questo elemento? ({{ $trash_item->name }})' )">Delete</a>
                         </td>
                     </tr>
                 @endforeach
