@@ -49,9 +49,9 @@
 
                 </div>
             </div>
-            <ReviewForm :mainArray="product.reviews"/>
+            <ReviewForm :mainArray="product.reviews" :product_id="product.id"/>
         </div>
-        <h1 v-else>lelelel</h1>
+        <h1 v-else>In caricamento...</h1>
     </section>
 </template>
 
@@ -79,13 +79,11 @@ export default {
         getPosts() {
             axios.get(`http://127.0.0.1:8000/api/products/${this.$route.params.slug}`)
                 .then(res => {
-                //   if (res.data.not_found) {
-                //          this.$router.push({ name: 'not_found'})
-                //      } else {
+                    if (res.data.not_found) {
+                        this.$router.push({ name: 'not_found' })
+                    } else {
                         this.product = res.data;
-                        // console.log(res.data);
-                        console.log(res.data);
-                    // }
+                    }
                 })
                 .catch(err => log.error(err));
         },
