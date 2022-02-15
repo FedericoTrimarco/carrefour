@@ -33,7 +33,8 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('admin.products.create', compact('categories'));
+        $brands = Brand::all();
+        return view('admin.products.create', compact('categories', 'brands'));
     }
 
     /**
@@ -49,12 +50,6 @@ class ProductController extends Controller
 
         $data = $request->all();
 
-        // Brand set
-        $new_brand = new Brand();
-        $new_brand->name = $data['brand'];
-        $new_brand->save();
-        $brand = Brand::where('name', $data['brand'])->first();
-
         // Save cover image in storage if exists
         if (array_key_exists('thumb', $data)) {
             $data['thumb'] = Storage::put('product-images', $data['thumb']);
@@ -62,7 +57,19 @@ class ProductController extends Controller
 
         // 1. new instance of Product
         $new_product = new Product();
-        $new_product['brand_id'] = $brand['id'];
+
+        // Brand set
+        if (is_null($data['brand_id'])) {
+            $brand = Brand::where('name', $data['brand'])->first();
+            
+            if (is_null($brand)) {
+                $new_brand = new Brand();
+                $new_brand->name = $data['brand'];
+                $new_brand->save();;
+            }
+        }
+        $brand = Brand::where('name', $data['brand'])->first();
+        $new_product['brand_id'] = $brand->id;
         
         if (array_key_exists('is_new', $data)) {
             $data['is_new'] = 1;
@@ -200,7 +207,7 @@ class ProductController extends Controller
 
     private function rules_to_validate_store() {
         return [
-            'brand' => 'required',
+            'brand' => 'max:100',
             'name' => 'required',
             'price' => 'required',
             'price_detail' => 'required',
@@ -212,7 +219,7 @@ class ProductController extends Controller
 
     private function rules_to_validate_update() {
         return [
-            'brand' => 'required',
+            'brand' => 'required|max:100',
             'name' => 'required',
             'price' => 'required',
             'price_detail' => 'required',

@@ -23,7 +23,19 @@
 
             <div class="mb-3">
                 <label for="brand" class="form-label">Marca:</label>
-                <input type="text" name="brand" id="brand" placeholder="insert brand" class="form-control" value="{{ old('brand') }}">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <input type="text" name="brand" id="brand" placeholder="insert brand" class="form-control" value="{{ old('brand') }}">
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <select name="brand_id" id="brand_id">
+                            <option value="">Crea nuovo brand</option>
+                            @foreach ($brands as $brand)
+                                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
                 @error('brand')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
