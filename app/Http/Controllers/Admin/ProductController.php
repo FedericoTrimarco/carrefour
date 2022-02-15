@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\Product;
 use App\Brand;
 use App\Category;
+use App\ProductDescription;
 
 class ProductController extends Controller
 {
@@ -75,7 +76,6 @@ class ProductController extends Controller
         $data['slug'] = $slug;
         // 2. set properties
         $new_product->fill($data);
-
         // 3. save in 'products' table
         $new_product->save();
 

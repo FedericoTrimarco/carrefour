@@ -2410,6 +2410,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ProductDetail',
@@ -13292,6 +13293,8 @@ var render = function () {
                   _c("h2", [_vm._v(_vm._s(_vm.product.brand.name))]),
                   _vm._v(" "),
                   _c("span", [_vm._v(_vm._s(_vm.product.name))]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(_vm.product.description))]),
                 ]),
                 _vm._v(" "),
                 _vm.product.is_new === 1

@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('slug');
             $table->float('price', 5, 2);
             $table->string('price_detail');
+            $table->text('description');
             $table->string('thumb');
             $table->boolean('is_new')->default(1);
             $table->timestamps();

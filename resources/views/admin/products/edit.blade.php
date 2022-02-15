@@ -24,16 +24,16 @@
         @method('PATCH')
         <div>
             <label for="brand" class="form-label">Marca:</label>
-            <input type="text" name="brand" id="brand" placeholder="insert brand" class="form-control" value="{{ old('brand', $product->brand) }}">
+            <input type="text" name="brand" id="brand" placeholder="insert brand" class="form-control" value="{{ old('brand', $product->brand->name) }}">
             @error('brand')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
 
         <div>
-            <label for="name_product" class="form-label">nome del prodotto:</label>
-            <input type="text" name="name_product" id="name_product" placeholder="insert name_product" class="form-control" value="{{ old('name_product', $product->name_product) }}">
-            @error('name_product')
+            <label for="name" class="form-label">nome del prodotto:</label>
+            <input type="text" name="name" id="name" placeholder="insert name product" class="form-control" value="{{ old('name', $product->name) }}">
+            @error('name')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>

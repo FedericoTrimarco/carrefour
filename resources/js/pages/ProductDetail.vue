@@ -20,6 +20,7 @@
                         <div>
                             <h2>{{ product.brand.name }}</h2>
                             <span>{{ product.name }}</span>
+                            <p>{{ product.description }}</p>
                         </div>
 
                         <img
