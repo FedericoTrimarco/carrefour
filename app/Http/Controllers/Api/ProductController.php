@@ -14,8 +14,8 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
-    public function show($id){
-        $product = Product::find($id);
+    public function show($slug){
+        $product = Product::where('slug', $slug)->with('brand')->first();
         // if (! $product) {
         //     $product['not_found'] = true;
         // }

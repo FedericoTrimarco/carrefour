@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Product;
+use App\Brand;
 use App\Category;
 
 class ProductController extends Controller
@@ -44,15 +46,33 @@ class ProductController extends Controller
         $request->validate( $this->rules_to_validate(), $this->error_messages() );
 
         $data = $request->all();
+
+        $new_brand = new Brand();
+        $new_brand->name = $data['brand'];
+        $new_brand->save();
+        $brand = Brand::where('name', $data['brand'])->first();
+
         // 1. new instance of Product
         $new_product = new Product();
-
+        $new_product['brand_id'] = $brand['id'];
+        
         if (array_key_exists('is_new', $data)) {
             $data['is_new'] = 1;
         } else{
             $data['is_new'] = 0;
         }
 
+        // gen slug univoco
+        $slug = Str::slug($data['name'], '-');
+        $count = 2;
+        $base_slug = $slug;
+
+        while (Product::where('slug', $slug)->first()) {
+            $slug = $base_slug . '-' . $count;
+            $count++;
+        }
+
+        $data['slug'] = $slug;
         // 2. set properties
         $new_product->fill($data);
 
@@ -111,6 +131,21 @@ class ProductController extends Controller
             $data['is_new'] = 0;
         }
         
+        if ($data['name'] != $product->name) {
+            $slug = Str::slug($data['name'], '-');
+            $count = 2;
+            $base_slug = $slug;
+
+            while (Product::where('slug', $slug)->first()) {
+                $slug = $base_slug . '-' . $count;
+                $count++;
+            }
+
+            $data['slug'] = $slug;
+        } else {
+            $data['slug'] = $product->slug;
+        }
+
         $product->update($data);
 
         return redirect()->route('admin.products.show', $product->id);
@@ -150,7 +185,7 @@ class ProductController extends Controller
     public function rules_to_validate() {
         return [
             'brand' => 'required',
-            'name_product' => 'required',
+            'name' => 'required',
             'price' => 'required',
             'price_detail' => 'required',
             'description' => 'required',

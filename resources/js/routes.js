@@ -19,7 +19,7 @@ const router = new VueRouter({
             component: Home,
         },
         {
-            path: '/product/:id',
+            path: '/product/:slug',
             name: 'productDetail',
             component: ProductDetail,
         },

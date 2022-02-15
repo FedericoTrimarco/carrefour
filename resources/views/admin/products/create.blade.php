@@ -30,9 +30,9 @@
             </div>
     
             <div>
-                <label for="name_product" class="form-label">nome del prodotto:</label>
-                <input type="text" name="name_product" id="name_product" placeholder="insert name_product" class="form-control" value="{{ old('name_product') }}">
-                @error('name_product')
+                <label for="name" class="form-label">nome del prodotto:</label>
+                <input type="text" name="name" id="name" placeholder="insert name product" class="form-control" value="{{ old('name') }}">
+                @error('name')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>

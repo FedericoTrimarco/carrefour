@@ -2425,7 +2425,7 @@ __webpack_require__.r(__webpack_exports__);
     getPosts: function getPosts() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/products/".concat(this.$route.params.id)).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("http://127.0.0.1:8000/api/products/".concat(this.$route.params.slug)).then(function (res) {
         //  if (res.data.not_found) {
         //         this.$router.push({ name: 'not_found'})
         //     } else {
@@ -13146,7 +13146,7 @@ var render = function () {
             key: "prodotto-" + product.id,
             staticClass: "col-3 mb-4 text-decoration-none",
             attrs: {
-              to: { name: "productDetail", params: { id: product.id } },
+              to: { name: "productDetail", params: { slug: product.slug } },
             },
           },
           [
@@ -13289,9 +13289,9 @@ var render = function () {
               },
               [
                 _c("div", [
-                  _c("h2", [_vm._v(_vm._s(_vm.product.brand))]),
+                  _c("h2", [_vm._v(_vm._s(_vm.product.brand.name))]),
                   _vm._v(" "),
-                  _c("span", [_vm._v(_vm._s(_vm.product.name_product))]),
+                  _c("span", [_vm._v(_vm._s(_vm.product.name))]),
                 ]),
                 _vm._v(" "),
                 _vm.product.is_new === 1
@@ -29665,7 +29665,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'home',
     component: _pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: '/product/:id',
+    path: '/product/:slug',
     name: 'productDetail',
     component: _pages_ProductDetail_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   } // {

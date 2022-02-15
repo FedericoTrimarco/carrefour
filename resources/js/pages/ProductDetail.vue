@@ -18,8 +18,8 @@
                     <!-- name product -->
                     <div class="product-name d-flex justify-content-between align-items-center">
                         <div>
-                            <h2>{{ product.brand }}</h2>
-                            <span>{{ product.name_product }}</span>
+                            <h2>{{ product.brand.name }}</h2>
+                            <span>{{ product.name }}</span>
                         </div>
 
                         <img
@@ -63,7 +63,7 @@ export default {
     },
     methods: {
         getPosts() {
-            axios.get(`http://127.0.0.1:8000/api/products/${this.$route.params.id}`)
+            axios.get(`http://127.0.0.1:8000/api/products/${this.$route.params.slug}`)
                 .then(res => {
                 //  if (res.data.not_found) {
                 //         this.$router.push({ name: 'not_found'})

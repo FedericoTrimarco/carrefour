@@ -51,10 +51,10 @@
                             {{ $product->id }}
                         </td>
                         <td>
-                            {{ $product->name_product }}
+                            {{ $product->name }}
                         </td>
                         <td>
-                            {{ $product->brand }}
+                            {{ $product->brand->name }}
                         </td>
                         <td>
                             @if ($product->is_new == 1)

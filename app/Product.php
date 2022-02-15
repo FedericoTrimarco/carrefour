@@ -17,14 +17,15 @@ class Product extends Model
      */
     protected $fillable = [
         'category_id',
-        'sub_category_id',
-        'sub_category_type_id',
+        // 'sub_category_id',
+        // 'sub_category_type_id',
         'brand_id',
         'name',
         'price',
         'price_detail',
         'thumb',
-        'is_new'
+        'is_new',
+        'slug',
     ];
 
     /**

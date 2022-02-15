@@ -8,7 +8,7 @@
                     class="col-3 mb-4 text-decoration-none"
                     v-for="product in products"
                     :key="`prodotto-${product.id}`"
-                    :to="{name: 'productDetail', params: { id: product.id }}"
+                    :to="{name: 'productDetail', params: { slug: product.slug }}"
                 >
                     <div class="card-product d-flex flex-column justify-content-between p-4 border h-100 position-relative">
                         <div class="info">
