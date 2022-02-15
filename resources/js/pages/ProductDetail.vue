@@ -46,7 +46,7 @@
 
                 </div>
             </div>
-                <ReviewForm/>
+            <ReviewForm :mainArray="product.reviews"/>
         </div>
     </section>
 </template>
