@@ -5,11 +5,11 @@
                 <h3 class="text-center mb-3 mt-5">Aggiungi la tua Recensione</h3>
                 <div
                     v-show="isSent"
-                    class="banner banner-success text-center"
+                    class="alert alert-success text-center"
                 >
                     La tua recensione è stata inviata correttamente
                 </div>
-                <form v-show="!isSent" @submit.prevent="reviewForm">
+                <form @submit.prevent="reviewForm">
                     <div class="mb-3 d-flex flex-column align-items-center">
                         <input type="text" name="author" id="author" v-model.trim="author" placeholder="Nome" class="form-control">
 
@@ -138,38 +138,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .review {
-        background-color: white;
-        border-radius: 15px;
-        .author {
+    .container {
+        h3, h4{
             color: #1b3d79;
-            margin: 5px 0px;
-            font-size: 25px;
         }
-        .rating {
-            color: yellow;
-            margin: 5px 0px;
-        }
-        .review-description {
-            color: #212529;
-            margin: 5px 0px;
-        }
-    }
-
-    form {
-/*         .form-label {
-            
-        } */
-        .form-control {
-            border: none;
-            -moz-appearance: textfield;
-            background-color: #f7f7f7;
-            border-bottom: 1px solid rgb(175, 175, 175);
-            border-radius: 0px;
-            overflow-y: hidden;
-            &::placeholder {
-            color: rgb(143, 143, 143);
+        .review {
+            background-color: white;
+            border-radius: 15px;
+            .author {
+                color: #1b3d79;
+                margin: 5px 0px;
+                font-size: 25px;
+            }
+            .rating {
+                color: yellow;
+                margin: 5px 0px;
+            }
+            .review-description {
+                color: #212529;
+                margin: 5px 0px;
             }
         }
+
+        form {
+    /*         .form-label {
+                
+            } */
+            .form-control {
+                border: none;
+                -moz-appearance: textfield;
+                background-color: #f7f7f7;
+                border-bottom: 1px solid rgb(175, 175, 175);
+                border-radius: 0px;
+                overflow-y: hidden;
+                &::placeholder {
+                color: rgb(143, 143, 143);
+                }
+            }
+        }
+
     }
 </style>
