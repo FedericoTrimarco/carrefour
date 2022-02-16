@@ -33,7 +33,6 @@ export default {
         height: 100vh;
     }
     main {
-        border: 5px solid red;
         flex-grow: 1;
     }
 </style>

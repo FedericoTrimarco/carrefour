@@ -1,6 +1,7 @@
 <template>
     <li class="category">
-        <a href="/" class="d-flex flex-column text-center px-2 m-2">
+        <!-- <a :href="`/categories/${categoryData.slug}`" class="d-flex flex-column text-center px-2 m-2"> -->
+        <a :href="$router.resolve({name: 'categories', params: {slug: categoryData.slug}}).href" class="d-flex flex-column text-center px-2 m-2">
             <div class="category-logo pt-3 pb-2">
                 <img src="https://www.carrefour.it/on/demandware.static/-/Sites-carrefour-storefront-catalog-IT/default/dw311c27eb/icons/spesa-on-line/ic_Enoteca_NormalCat.svg" :alt="`logo ${categoryData.name}`">
             </div>

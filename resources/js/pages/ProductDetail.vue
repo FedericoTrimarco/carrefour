@@ -72,11 +72,11 @@ export default {
     },
 
     created() {
-        this.getPosts();
+        this.getProducts();
     },
 
     methods: {
-        getPosts() {
+        getProducts() {
             axios.get(`http://127.0.0.1:8000/api/products/${this.$route.params.slug}`)
                 .then(res => {
                     if (res.data.not_found) {

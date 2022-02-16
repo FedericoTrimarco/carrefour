@@ -1,12 +1,13 @@
 <template>
-    <section class="section-card container my-5">
+    <section v-if="completedCall" class="section-card container my-5">
 
-        <h1 class="my-5">Our Products</h1>
+        <!-- <h1 class="my-5">{{ products.category.name }}</h1> -->
+        <h1 class="my-5">{{ products.category.name }}</h1>
 
-        <div class="row align-items-stretch">
+        <div v-if="products.products.length > 0" class="row align-items-stretch">
                 <router-link
                     class="col-3 mb-4 text-decoration-none"
-                    v-for="product in products"
+                    v-for="product in products.products"
                     :key="`prodotto-${product.id}`"
                     :to="{name: 'productDetail', params: { slug: product.slug }}"
                 >
@@ -19,7 +20,7 @@
                         <div class="img-product d-flex justify-content-center my-5">
                             <div class="w-50 position-relative">
                                 <img v-if="product.is_new === 1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxc5_at9g0TttKAdjl0GjJ2hYZY_6PX5TSaQ&usqp=CAU" alt="novità-logo" class="w-25 position-absolute top-0 end-0">
-                                <img :src="product.thumb" :alt="`${product.name}`" class="w-100">
+                                <img :src="product.thumb" :alt="product.name" class="w-100">
                             </div>
                         </div>
 
@@ -34,6 +35,7 @@
                     </div>
                 </router-link>
         </div>
+        <span v-else>Nessun Prodotto per questa categoria</span>
     </section>
 </template>
 
@@ -44,17 +46,20 @@ export default {
     name: 'SectionCard',
     data() {
         return {
-            products: null,
+            products: [],
+            completedCall: false,
         }
     },
     created() {
-        this.getPosts();
+        this.getCategory();
     },
     methods: {
-        getPosts() {
-            axios.get('http://127.0.0.1:8000/api/products')
+        getCategory() {
+            axios.get(`http://127.0.0.1:8000/api/products/categories/${this.$route.params.slug}`)
                 .then(res => {
                     this.products = res.data;
+                    console.log(res.data);
+                    this.completedCall = true;
                 })
         },
     }
