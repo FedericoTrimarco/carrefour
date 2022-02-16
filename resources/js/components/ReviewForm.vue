@@ -1,37 +1,19 @@
 <template>
     <div class="container mt-5">
         <div class="row">
-            <div class="col-8">
-                <h3 class="text-center">Recensioni</h3>
-                <div v-if="mainArray">
-                    <div v-for="(el, i) in mainArray" :key="`review-${i}`">
-                        <h4>
-                            {{ el.author }}
-                        </h4>
-                        <p>
-                            {{ el.rate }}
-                        </p>
-                        <p>
-                            {{ el.description }}
-                        </p>
-                    </div>
-                </div>
-                <span v-else>Non ci sono ancora recensioni per questo prodotto</span>
-            </div>
-            <div class="col-4">
+            <div class="col-12">
+                <h3 class="text-center mb-3 mt-5">Aggiungi la tua Recensione</h3>
                 <div
                     v-show="isSent"
-                    class="banner banner-success"
+                    class="banner banner-success text-center"
                 >
-                    Recensione inviata correttamente
+                    La tua recensione è stata inviata correttamente
                 </div>
-                <h3 class="text-center">Form Recensioni</h3>
-                <form @submit.prevent="reviewForm">
-                    <div class="mb-3">
-                        <label for="author" class="form-label">Inserisci il tuo nome</label>
-                        <input type="text" name="author" id="author" v-model.trim="author" class="form-control">
+                <form v-show="!isSent" @submit.prevent="reviewForm">
+                    <div class="mb-3 d-flex flex-column align-items-center">
+                        <input type="text" name="author" id="author" v-model.trim="author" placeholder="Nome" class="form-control">
 
-                        <div 
+                        <div
                             v-for="(error,index) in errors.author"
                             :key= "`err-author-${index}`"
                             class="text-danger"
@@ -40,9 +22,8 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Inserisci la tua recensione</label>
-                        <textarea name="description" id="description" v-model.trim="description" class="form-control"></textarea>
+                    <div class="mb-3 d-flex flex-column align-items-center">
+                        <textarea name="description" id="description" rows="1" v-model.trim="description" placeholder="Descrizione" class="form-control"></textarea>
 
                         <div 
                             v-for="(error,index) in errors.description"
@@ -53,9 +34,8 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Inserisci la tua mail</label>
-                        <input type="text" name="email" id="email" v-model.trim="email" class="form-control">
+                    <div class="mb-3 d-flex flex-column align-items-center">
+                        <input type="text" name="email" id="email" v-model.trim="email" placeholder="Email" class="form-control">
 
                         <div 
                             v-for="(error,index) in errors.email"
@@ -66,9 +46,8 @@
                         </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="rate" class="form-label">Inserisci la tua valutazione</label>
-                        <input type="number" min="0" max="5" name="rate" step="1" id="rate" v-model="rate" class="form-control">
+                    <div class="mb-3 d-flex flex-column align-items-center">
+                        <input type="number" min="0" max="5" name="rate" step="1" id="rate" v-model="rate" placeholder="Voto" class="form-control">
                     
                         <div 
                             v-for="(error,index) in errors.rate"
@@ -79,10 +58,27 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary mt-1" :disabled="sending">
+                    <button type="submit" class="btn btn-primary mt-1" :disabled="sending" @click="refreshReviewList()">
                         {{ sending ? 'invio in corso...' : 'invio' }}
                     </button>
                 </form>
+            </div>
+            <div class="col-12">
+                <h3 class="text-center mb-3">Recensioni</h3>
+                <div v-if="mainArray">
+                    <div class="review p-3 mb-3" v-for="(el, i) in mainArray" :key="`review-${i}`">
+                        <h4 class="author">
+                            {{ el.author }}
+                        </h4>
+                        <span v-for="(star, i) in el.rate" :key="`star-${i}`">
+                            <i class="fa-solid fa-star mb-3 text-warning"></i>
+                        </span>
+                        <p class="review-description">
+                            {{ el.description }}
+                        </p>
+                    </div>
+                </div>
+                <span v-else>Non ci sono ancora recensioni per questo prodotto</span>
             </div>
         </div>
     </div>
@@ -136,11 +132,44 @@ export default {
                 this.sending = false;
                 console.log(err);
             })
-        }
+        },
     }
 }
 </script>
 
 <style lang="scss" scoped>
+    .review {
+        background-color: white;
+        border-radius: 15px;
+        .author {
+            color: #1b3d79;
+            margin: 5px 0px;
+            font-size: 25px;
+        }
+        .rating {
+            color: yellow;
+            margin: 5px 0px;
+        }
+        .review-description {
+            color: #212529;
+            margin: 5px 0px;
+        }
+    }
 
+    form {
+/*         .form-label {
+            
+        } */
+        .form-control {
+            border: none;
+            -moz-appearance: textfield;
+            background-color: #f7f7f7;
+            border-bottom: 1px solid rgb(175, 175, 175);
+            border-radius: 0px;
+            overflow-y: hidden;
+            &::placeholder {
+            color: rgb(143, 143, 143);
+            }
+        }
+    }
 </style>
