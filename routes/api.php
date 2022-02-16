@@ -21,6 +21,8 @@ Route::namespace('Api')->group(function() {
     // Categories get api route
     Route::get('/products/categories', 'CategoryController@index');
 
+    Route::get('/products/categories/{slug}', 'CategoryController@show');
+
     // Product-detail get api route
     Route::get('/products/{slug}', 'ProductController@show');
 

@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 // componenti
 import Home from './pages/Home.vue';
 import ProductDetail from './pages/ProductDetail.vue';
+import Categories from './pages/Categories.vue';
 // import NotFound from './pages/NotFound.vue';
 
 // attivazione router
@@ -22,6 +23,11 @@ const router = new VueRouter({
             path: '/product/:slug',
             name: 'productDetail',
             component: ProductDetail,
+        },
+        {
+            path: '/categories/:slug',
+            name: 'categories',
+            component: Categories,
         },
         // {
         //     path: '*',
