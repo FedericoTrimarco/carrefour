@@ -59,16 +59,15 @@ class ProductController extends Controller
         $new_product = new Product();
 
         // Brand set
-        if (is_null($data['brand_id'])) {
-            $brand = Brand::where('name', $data['brand'])->first();
-            
-            if (is_null($brand)) {
-                $new_brand = new Brand();
-                $new_brand->name = $data['brand'];
-                $new_brand->save();;
-            }
-        }
         $brand = Brand::where('name', $data['brand'])->first();
+
+        if (is_null($brand)) {
+            $new_brand = new Brand();
+            $new_brand->name = $data['brand'];
+            $new_brand->save();
+            $brand = Brand::where('name', $data['brand'])->first();
+        }
+
         $new_product['brand_id'] = $brand->id;
         
         if (array_key_exists('is_new', $data)) {
@@ -120,11 +119,13 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $categories = Category::all();
+        $brands = Brand::all();
 
         if(! $product) {
             abort(404);
         }
-        return view('admin.products.edit', compact('product', 'categories'));
+
+        return view('admin.products.edit', compact('product', 'categories', 'brands'));
     }
 
     /**
@@ -146,12 +147,25 @@ class ProductController extends Controller
             $data['is_new'] = 0;
         }
 
+        // Brand set
+        $brand = Brand::where('name', $data['brand'])->first();
+
+        if (is_null($brand)) {
+            $new_brand = new Brand();
+            $new_brand->name = $data['brand'];
+            $new_brand->save();
+            $brand = Brand::where('name', $data['brand'])->first();
+        }
+
+        $product['brand_id'] = $brand->id;
+
         // Substitute product image if exist in form
         if (array_key_exists('thumb', $data)) {
             Storage::delete($product->thumb);
             $data['thumb'] = Storage::put('product-images', $data['thumb']);
         }
         
+        // Slug
         if ($data['name'] != $product->name) {
             $slug = Str::slug($data['name'], '-');
             $count = 2;

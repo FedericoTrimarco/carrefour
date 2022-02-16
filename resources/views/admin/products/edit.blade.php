@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-@section('content')
 <section class="container">
 
     <h2>
-        edit {{ $product->name }}
+        Modifica: {{ $product->name }}
     </h2>
 
     @if ($errors->any())
@@ -24,14 +23,16 @@
 
         <div class="mb-3">
             <label for="brand" class="form-label">Marca:</label>
-            <input type="text" name="brand" id="brand" placeholder="insert brand" class="form-control" value="{{ old('brand', $product->brand->name) }}">
+            <input type="text" name="brand" id="brand" placeholder="Insert brand" class="form-control" value="{{ old('brand', $product->brand->name) }}">
+{{--             <Brands :brands="{{ json_encode($brands) }}" :old_input="{{ json_encode(old('brand', '')) }}" /> --}} 
+{{-- Questa riga al momento richiama una componente Vue globale che dovrebbe funzionare ma non va. Per il create funziona ma qui no e non so perché. --}}
             @error('brand')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="mb-3">
-            <label for="name" class="form-label">nome del prodotto:</label>
+            <label for="name" class="form-label">Nome prodotto:</label>
             <input type="text" name="name" id="name" placeholder="insert name product" class="form-control" value="{{ old('name', $product->name) }}">
             @error('name')
                 <div class="text-danger">{{ $message }}</div>
@@ -39,7 +40,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="price" class="form-label">prezzo:</label>
+            <label for="price" class="form-label">Prezzo:</label>
             <input type="number" name="price" id="price" step="0.01" min="0" class="form-control" value="{{ old('price', $product->price) }}">
             @error('price')
                 <div class="text-danger">{{ $message }}</div>
@@ -47,7 +48,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="price_detail" class="form-label">prezzo al dettaglio:</label>
+            <label for="price_detail" class="form-label">Dettaglio prezzo:</label>
             <input type="text" name="price_detail" id="price_detail" placeholder="insert price_detail" class="form-control" value="{{ old('price_detail', $product->price_detail) }}">
             @error('price_detail')
                 <div class="text-danger">{{ $message }}</div>
@@ -73,20 +74,12 @@
         </div>
 
         <div class="mb-3">
-            <label for="description" class="form-label">breve descrizione:</label>
+            <label for="description" class="form-label">Descrizione:</label>
             <input type="text" name="description" id="description" placeholder="insert description" class="form-control" value="{{ old('description', $product->description) }}">
             @error('description')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
-
-{{--         <div>
-            <label for="thumb" class="form-label">link all'immagine:</label>
-            <input type="text" name="thumb" id="thumb" placeholder="insert thumb" class="form-control" value="{{ old('thumb', $product->thumb) }}">
-            @error('thumb')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div> --}}
 
         <div class="mb-3">
             <h4>Immagine prodotto</h4>
@@ -109,15 +102,5 @@
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-
-    {{-- nomi colonne database
-    brand / string
-    name_product / string
-    price / float
-    price_detail / string
-    description / text
-    thumb / text
-    is_new / bool 
-    bau--}}
 </section>
 @endsection
