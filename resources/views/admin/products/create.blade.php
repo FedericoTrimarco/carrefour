@@ -7,6 +7,8 @@
             New Product
         </h2>
     
+        {{-- @dump(json_encode(old('brand', ''))) --}}
+
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -20,22 +22,8 @@
         <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
             @method('POST')
             @csrf
-
             <div class="mb-3">
-                <label for="brand" class="form-label">Marca:</label>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <input type="text" name="brand" id="brand" placeholder="insert brand" class="form-control" value="{{ old('brand') }}">
-                    </div>
-                    <div class="col-sm-12 col-md-6">
-                        <select name="brand_id" id="brand_id">
-                            <option value="">Crea nuovo brand</option>
-                            @foreach ($brands as $brand)
-                                <option value="{{ $brand->id }}">{{ $brand->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+                <Brands :brands="{{ json_encode($brands) }}" :old_input="{{ json_encode(old('brand', '')) }}" />
                 @error('brand')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -90,14 +78,6 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-    
-{{--             <div class="mb-3">
-                <label for="thumb" class="form-label">Immagine prodotto (URL esterno):</label>
-                <input type="text" name="thumb" id="thumb" placeholder="insert thumb" class="form-control" value="{{ old('thumb') }}">
-                @error('thumb')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div> --}}
 
             <div class="mb-3">
                 <h4>Immagine prodotto</h4>
@@ -120,15 +100,5 @@
     
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-    
-        {{-- nomi colonne database
-        brand / string
-        name_product / string
-        price / float
-        price_detail / string
-        description / text
-        thumb / text
-        is_new / bool 
-        bau--}}
     </section>
 @endsection
