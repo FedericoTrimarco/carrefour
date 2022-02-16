@@ -18,7 +18,8 @@ class ProductController extends Controller
     }
 
     public function show($slug){
-        $product = Product::where('slug', $slug)->with(['brand', 'reviews'])->first();
+        $product = Product::where('slug', $slug)->with(['brand'])->first();
+        $product->load(['reviews'=>function($r) {$r->orderBy('id', 'desc');}]);
         if (! $product) {
             $product['not_found'] = true;
         } elseif ($product) {
