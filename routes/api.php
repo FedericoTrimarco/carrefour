@@ -25,5 +25,7 @@ Route::namespace('Api')->group(function() {
     Route::get('/products/{slug}', 'ProductController@show');
 
     // Save new product-review
+    Route::get('/reviews', 'ReviewController@index');
+    
     Route::post('/reviews', 'ReviewController@store');
 });
