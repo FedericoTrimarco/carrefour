@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="h-100 d-flex flex-column">
         <Header />
         <Categories />
 
@@ -29,5 +29,11 @@ export default {
 
 <style lang="scss">
 // @import '../../sass/_variables.scss';
-
+    body {
+        height: 100vh;
+    }
+    main {
+        border: 5px solid red;
+        flex-grow: 1;
+    }
 </style>

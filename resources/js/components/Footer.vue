@@ -181,6 +181,7 @@ footer {
     max-width: 100%;
     margin: auto;
     padding: 50px 0;
+    width: 100%;
 }
 ul {
     list-style: none;
